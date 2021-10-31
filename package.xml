@@ -1,0 +1,29 @@
+<package format="2">
+  <name>beginner_tutorials</name>
+  <version>1.0.0</version>
+  <description>
+    This package is an assignment for learning basics of 
+    ROS
+  </description>
+  <maintainer email="sumedhrk@umd.edu">Sumedh Koppula</maintainer>
+  <license>MIT</license>
+
+  <url>https://portfolio-sumedh.herokuapp.com</url>
+  <author>Sumedh Koppula</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <test_depend>python-mock</test_depend>
+  <doc_depend>doxygen</doc_depend>
+  
+</package>
