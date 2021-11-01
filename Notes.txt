@@ -1,0 +1,24 @@
+Tutorial: http://wiki.ros.org/ROS/Tutorials/BuildingPackages
+
+- Created CmakeLists.txt 
+- Ran catkin_make
+
+Tutorial: http://wiki.ros.org/ROS/Tutorials/UnderstandingNodes
+
+- Learnt about what are nodes in ROS
+- ran $rosnode list
+    I have seen:
+        /rosout
+- Learnt about turtlesim nodes by running
+    $ rosrun turtlesim turtlesim_node     
+
+
+Tutorial: http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics 
+
+- Understoond how ROS topic works 
+- Learnt about rqt_graph
+- Ran $ rostopic -h for turtlebot
+- Ran $ rostopic list -h 
+- Ran $ rostopic type /turtle1/cmd_vel
+- Learnt how to use rostopic pub
+- Learnt how to use Using rqt_plot
