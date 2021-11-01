@@ -1,16 +1,15 @@
+// Copyright 2021 Sumedh Reddy Koppula
+#include "beginner_tutorials/listener.h"
 #include "ros/ros.h"
 #include "std_msgs/String.h"
-
 /**
  * This tutorial demonstrates simple receipt of messages over the ROS system.
  */
-void chatterCallback(const std_msgs::String::ConstPtr& msg)
-{
-  ROS_INFO("I heard: [%s]", msg->data.c_str());
+void chatterCallback(const std_msgs::String::ConstPtr& msg) {
+  ROS_INFO("Hey You!! I can hear you: [%s]", msg->data.c_str());
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
   /**
    * The ros::init() function needs to see argc and argv so that it can perform
    * any ROS arguments and name remapping that were provided at the command line.
@@ -28,7 +27,7 @@ int main(int argc, char **argv)
    * The first NodeHandle constructed will fully initialize this node, and the last
    * NodeHandle destructed will close down the node.
    */
-  ros::NodeHandle n;
+  node = new ros::NodeHandle;
 
   /**
    * The subscribe() call is how you tell ROS that you want to receive messages
@@ -45,7 +44,7 @@ int main(int argc, char **argv)
    * is the number of messages that will be buffered up before beginning to throw
    * away the oldest ones.
    */
-  ros::Subscriber sub = n.subscribe("chatter", 1000, chatterCallback);
+  subscriber = node->subscribe("chatter", 1000, chatterCallback);
 
   /**
    * ros::spin() will enter a loop, pumping callbacks.  With this version, all
@@ -53,6 +52,6 @@ int main(int argc, char **argv)
    * will exit when Ctrl-C is pressed, or the node is shutdown by the master.
    */
   ros::spin();
-
+  delete node;
   return 0;
 }

@@ -1,3 +1,5 @@
+// Copyright 2021 Sumedh Reddy Koppula
+#include "beginner_tutorials/talker.h"
 #include <sstream>
 #include "ros/ros.h"
 #include "std_msgs/String.h"
@@ -5,8 +7,7 @@
 /**
  * This tutorial demonstrates simple sending of messages over the ROS system.
  */
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
   /**
    * The ros::init() function needs to see argc and argv so that it can perform
    * any ROS arguments and name remapping that were provided at the command line.
@@ -24,7 +25,7 @@ int main(int argc, char **argv)
    * The first NodeHandle constructed will fully initialize this node, and the last
    * NodeHandle destructed will close down the node.
    */
-  ros::NodeHandle n;
+  node = new ros::NodeHandle;
 
   /**
    * The advertise() function is how you tell ROS that you want to
@@ -43,7 +44,7 @@ int main(int argc, char **argv)
    * than we can send them, the number here specifies how many messages to
    * buffer up before throwing some away.
    */
-  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
+  chatter_pub = node->advertise<std_msgs::String>("chatter", 1000);
 
   ros::Rate loop_rate(10);
 
@@ -51,16 +52,12 @@ int main(int argc, char **argv)
    * A count of how many messages we have sent. This is used to create
    * a unique string for each message.
    */
-  int count = 0;
-  while (ros::ok())
-  {
+  count = 0;
+  while (ros::ok()) {
     /**
      * This is a message object. You stuff it with data, and then publish it.
      */
-    std_msgs::String msg;
-
-    std::stringstream ss;
-    ss << "hello world " << count;
+    ss << "I bake Robots" << count;
     msg.data = ss.str();
 
     ROS_INFO("%s", msg.data.c_str());
@@ -79,6 +76,6 @@ int main(int argc, char **argv)
     ++count;
   }
 
-
+  delete node;
   return 0;
 }
