@@ -30,3 +30,34 @@ Tutorial: http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B
 - made changes to package.xml
 - understood how publisher and Subscriber works
 
+Tutorial: http://wiki.ros.org/ROS/Tutorials/ExaminingPublisherSubscriber
+
+- Ran $ rosrun beginner_tutorials talker
+
+[ INFO] [1635729990.503380760]: hello world 857
+[ INFO] [1635729990.603681688]: hello world 858
+[ INFO] [1635729990.704502609]: hello world 859
+[ INFO] [1635729990.803511845]: hello world 860
+[ INFO] [1635729990.905601208]: hello world 861
+[ INFO] [1635729991.005373059]: hello world 862
+[ INFO] [1635729991.108484451]: hello world 863
+[ INFO] [1635729991.203852568]: hello world 864
+[ INFO] [1635729991.306396467]: hello world 865
+[ INFO] [1635729991.407467927]: hello world 866
+[ INFO] [1635729991.504853559]: hello world 867
+[ INFO] [1635729991.606979047]: hello world 868
+[ INFO] [1635729991.704360888]: hello world 869
+
+
+- Ran $rosrun beginner_tutorials listener 
+
+[ INFO] [1635729990.803941464]: I heard: [hello world 860]
+[ INFO] [1635729990.905982203]: I heard: [hello world 861]
+[ INFO] [1635729991.005755638]: I heard: [hello world 862]
+[ INFO] [1635729991.109287066]: I heard: [hello world 863]
+[ INFO] [1635729991.204417352]: I heard: [hello world 864]
+[ INFO] [1635729991.306841753]: I heard: [hello world 865]
+[ INFO] [1635729991.408290500]: I heard: [hello world 866]
+[ INFO] [1635729991.505670924]: I heard: [hello world 867]
+[ INFO] [1635729991.607616289]: I heard: [hello world 868]
+[ INFO] [1635729991.705260335]: I heard: [hello world 869]
