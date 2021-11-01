@@ -22,3 +22,11 @@ Tutorial: http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics
 - Ran $ rostopic type /turtle1/cmd_vel
 - Learnt how to use rostopic pub
 - Learnt how to use Using rqt_plot
+
+Tutorial: http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29
+
+- Created src/ directory with talker.cpp and listener.cpp 
+- made neccessary changes to CmakeLists.txt
+- made changes to package.xml
+- understood how publisher and Subscriber works
+
