@@ -1,4 +1,5 @@
 # ROS Publisher Subscriber
+[![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](LICENSE.md)
 
 ## Description
 This is a simple ROS project to program publisher node to publish a custom string message and listen the message
