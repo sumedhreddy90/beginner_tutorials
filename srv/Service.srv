@@ -4,5 +4,14 @@
  # @author Sumedh Koppula
  # @date 05th November 2021
  # @copyright All rights reserved
- # @brief Description of services
+ # @brief Description of services with Request and Response
  #/
+
+# Request Service
+string input_string
+
+---
+
+# Response Service
+string output_string
+ 
