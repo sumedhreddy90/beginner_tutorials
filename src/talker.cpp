@@ -93,7 +93,7 @@ int main(int argc, char **argv) {
     /**
      * This is a message object. You stuff it with data, and then publish it.
      */
-    ss << pub_msg << count;
+    ss  << count << ": " << pub_msg << std::endl;
     msg.data = ss.str();
 
     ROS_INFO("%s", msg.data.c_str());

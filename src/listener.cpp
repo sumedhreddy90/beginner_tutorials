@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
    * The first NodeHandle constructed will fully initialize this node, and the last
    * NodeHandle destructed will close down the node.
    */
-  node = new ros::NodeHandle;
+  ros::NodeHandle node;
 
   /**
    * The subscribe() call is how you tell ROS that you want to receive messages
@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
    * is the number of messages that will be buffered up before beginning to throw
    * away the oldest ones.
    */
-  subscriber = node->subscribe("chatter", 1000, chatterCallback);
+  subscriber = node.subscribe("chatter", 1000, chatterCallback);
 
   /**
    * ros::spin() will enter a loop, pumping callbacks.  With this version, all
@@ -52,6 +52,5 @@ int main(int argc, char **argv) {
    * will exit when Ctrl-C is pressed, or the node is shutdown by the master.
    */
   ros::spin();
-  delete node;
   return 0;
 }
