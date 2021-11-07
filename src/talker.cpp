@@ -3,7 +3,27 @@
 #include <sstream>
 #include "ros/ros.h"
 #include "std_msgs/String.h"
+// Including header for service
+#include "beginner_tutorials/Service.h"
 
+
+std::string pub_msg = "I bake robots";    // NOLINT
+
+bool IsMessage(beginner_tutorials::Service::Request &request_,   // NOLINT
+beginner_tutorials::Service::Response &response_) {   // NOLINT
+  ROS_INFO_STREAM("updating message");
+  if (request_.input_string.empty()) {
+    ROS_ERROR_STREAM("Captured empty string message.");
+    return false;
+  } else {
+    ROS_DEBUG_STREAM("Received message: " << request_.input_string);
+    ROS_WARN_STREAM("This will change Publisher message");
+    pub_msg = request_.input_string;
+    response_.output_string = request_.input_string;
+    ROS_DEBUG_STREAM("message changed.");
+    return true;
+  }
+}
 /**
  * This tutorial demonstrates simple sending of messages over the ROS system.
  */
@@ -25,8 +45,10 @@ int main(int argc, char **argv) {
    * The first NodeHandle constructed will fully initialize this node, and the last
    * NodeHandle destructed will close down the node.
    */
-  node = new ros::NodeHandle;
-
+  ros::NodeHandle node;
+// Creating service and advertised over ROS
+  ros::ServiceServer service = node.advertiseService(
+  "Service", &IsMessage);
   /**
    * The advertise() function is how you tell ROS that you want to
    * publish on a given topic name. This invokes a call to the ROS
@@ -44,9 +66,23 @@ int main(int argc, char **argv) {
    * than we can send them, the number here specifies how many messages to
    * buffer up before throwing some away.
    */
-  chatter_pub = node->advertise<std_msgs::String>("chatter", 1000);
-
-  ros::Rate loop_rate(10);
+  chatter_pub = node.advertise<std_msgs::String>("chatter", 1000);
+  double frequency;
+  node.getParam("/frequency", frequency);
+  ROS_DEBUG_STREAM("Frequency argument = " << frequency);
+  if (isnan(frequency) || frequency < 1) {
+    ROS_FATAL_STREAM(
+      "Invalid frequency. Frequency must be a nonzero positive number");
+    ROS_DEBUG_STREAM("Invalid frequency detected. Changed to default value");
+    frequency = 10.0;
+  } else if (frequency > 51) {
+    ROS_WARN_STREAM("Recommended frequency range is 1-50");
+  } else if (frequency > 100) {
+    ROS_ERROR_STREAM("Error! Frequency value too large.");
+    ROS_DEBUG_STREAM("Large frequency detected. Changed to max allowed value");
+    frequency = 30;
+  }
+  ros::Rate loop_rate(frequency);
 
   /**
    * A count of how many messages we have sent. This is used to create
@@ -57,7 +93,7 @@ int main(int argc, char **argv) {
     /**
      * This is a message object. You stuff it with data, and then publish it.
      */
-    ss << "I bake Robots" << count;
+    ss << pub_msg << count;
     msg.data = ss.str();
 
     ROS_INFO("%s", msg.data.c_str());
@@ -76,6 +112,5 @@ int main(int argc, char **argv) {
     ++count;
   }
 
-  delete node;
   return 0;
 }

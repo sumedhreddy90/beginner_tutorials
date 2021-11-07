@@ -1,6 +1,6 @@
 // Copyright 2021 Sumedh Reddy Koppula
-#ifndef BEGINNER_TUTORIALS_INCLUDE_BEGINNER_TUTORIALS_TALKER_H_
-#define BEGINNER_TUTORIALS_INCLUDE_BEGINNER_TUTORIALS_TALKER_H_
+#ifndef BEGINNER_TUTORIALS_TALKER_H_
+#define BEGINNER_TUTORIALS_TALKER_H_
 
 #include "ros/ros.h"
 #include "std_msgs/String.h"
@@ -27,5 +27,10 @@ std_msgs::String msg;
  */
 std::stringstream ss;
 
-#endif  // BEGINNER_TUTORIALS_INCLUDE_BEGINNER_TUTORIALS_TALKER_H_
+/**
+ * Service object to advertise data on particular service
+ */
+ros::ServiceServer service;
+
+#endif  // BEGINNER_TUTORIALS_TALKER_H_
 
