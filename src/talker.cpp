@@ -31,7 +31,12 @@
 
 
 std::string pub_msg = "I bake robots";    // NOLINT
-
+/*
+ * @brief Updates publisher string data
+ * @param request_ : reference to request object from service
+ * @param response_ : reference to response object from service
+ * @return bool flag indicating success or failure of function execution
+ */
 bool IsMessage(beginner_tutorials::Service::Request &request_,   // NOLINT
 beginner_tutorials::Service::Response &response_) {   // NOLINT
   ROS_INFO_STREAM("updating message");

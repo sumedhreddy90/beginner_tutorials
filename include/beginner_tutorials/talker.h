@@ -23,13 +23,13 @@
  * @brief header file for publishing messages over master node.
  * 
  */
-#ifndef BEGINNER_TUTORIALS_TALKER_H_
-#define BEGINNER_TUTORIALS_TALKER_H_
+#ifndef BEGINNER_TUTORIALS_INCLUDE_BEGINNER_TUTORIALS_TALKER_H_
+#define BEGINNER_TUTORIALS_INCLUDE_BEGINNER_TUTORIALS_TALKER_H_
 
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
-ros::NodeHandle* node;
+//ros::NodeHandle* node;
 
 /**
  * Publisher object to publish data for provided topic name.
@@ -54,7 +54,7 @@ std::stringstream ss;
 /**
  * Service object to advertise data on particular service
  */
-ros::ServiceServer service;
+//ros::ServiceServer service;
 
-#endif  // BEGINNER_TUTORIALS_TALKER_H_
+#endif  // BEGINNER_TUTORIALS_INCLUDE_BEGINNER_TUTORIALS_TALKER_H_
 
