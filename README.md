@@ -19,9 +19,29 @@ git clone --recursive https://github.com/sumedhreddy90/beginner_tutorials.git
 ## Build source:
 
 ```bash
-catkin_make
-source devel/setup.bash
+
+$catkin_make
+
+$source devel/setup.bash
+
 Run the executable:
+
+Start publisher node:
 $rosrun beginner_tutorials talker
+
+Start subscriber node:
 $rosrun beginner_tutorials listener
+
+To run launch file
+//This command will launch both nodes publisher aswellas subscriber
+
+$roslaunch beginner_tutorials beginner.launch frequency:=<desired-frequency>
+
+To run service
+$rosservice call /Service "<desired-custom-message>"
+
+To invoke rqt logger and console 
+
+$rosrun rqt_console rqt_console
+$rosrun rqt_logger_level rqt_logger_level
 ```
