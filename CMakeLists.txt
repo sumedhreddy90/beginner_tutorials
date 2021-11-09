@@ -26,3 +26,9 @@ add_dependencies(talker beginner_tutorials_generate_messages_cpp)
 add_executable(listener src/listener.cpp)
 target_link_libraries(listener ${catkin_LIBRARIES})
 add_dependencies(listener beginner_tutorials_generate_messages_cpp)
+
+## Add gtest based cpp test target and link libraries
+catkin_add_gtest(${PROJECT_NAME}-test test/talker_tests.cpp)
+if(TARGET ${PROJECT_NAME}-test)
+  target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
+endif()
