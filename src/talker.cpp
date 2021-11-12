@@ -23,21 +23,25 @@
  * @brief Publishiing messages over master node.
  */
 #include "beginner_tutorials/talker.h"
+// Including header for tf2 broadcaster
+#include <tf2_ros/static_transform_broadcaster.h>
+// Including header for tf2 Quaternion
+#include <tf2/LinearMath/Quaternion.h>
 #include <sstream>
 #include "ros/ros.h"
-#include "std_msgs/String.h"
 // Including header for service
 #include "beginner_tutorials/Service.h"
 
+// An string message accessing from include file to provide global scope
+Message broadcast_msg;
 
-std::string pub_msg = "I bake robots";    // NOLINT
 /*
  * @brief Updates publisher string data
  * @param request_ : reference to request object from service
  * @param response_ : reference to response object from service
  * @return bool flag indicating success or failure of function execution
  */
-bool IsMessage(beginner_tutorials::Service::Request &request_,   // NOLINT
+bool Update(beginner_tutorials::Service::Request &request_,   // NOLINT
 beginner_tutorials::Service::Response &response_) {   // NOLINT
   ROS_INFO_STREAM("updating message");
   if (request_.input_string.empty()) {
@@ -46,7 +50,7 @@ beginner_tutorials::Service::Response &response_) {   // NOLINT
   } else {
     ROS_DEBUG_STREAM("Received message: " << request_.input_string);
     ROS_WARN_STREAM("This will change Publisher message");
-    pub_msg = request_.input_string;
+    broadcast_msg.message = request_.input_string;
     response_.output_string = request_.input_string;
     ROS_DEBUG_STREAM("message changed.");
     return true;
@@ -66,7 +70,21 @@ int main(int argc, char **argv) {
    * You must call one of the versions of ros::init() before using any other
    * part of the ROS system.
    */
-  ros::init(argc, argv, "talker");
+  ros::init(argc, argv, "talk");
+  if (argc != 8) {
+    ROS_ERROR("Invalid number of parameters\nusage: talk frame name x y z roll pitch yaw");
+    return -1;
+  }
+  if (strcmp(argv[1], "world") == 0) {
+    ROS_ERROR("Your static talk name cannot be 'world'");
+    return -1;
+  }
+  // Initialize broadcaster and frame
+    static tf2_ros::StaticTransformBroadcaster static_caster;
+    geometry_msgs::TransformStamped static_transformStamped;
+    tf2::Quaternion quat;
+
+
 
   /**
    * NodeHandle is the main access point to communications with the ROS system.
@@ -74,9 +92,10 @@ int main(int argc, char **argv) {
    * NodeHandle destructed will close down the node.
    */
   ros::NodeHandle node;
-// Creating service and advertised over ROS
+  // Creating service and advertised over ROS
   ros::ServiceServer service = node.advertiseService(
-  "Service", &IsMessage);
+  "Service", &Update);
+
   /**
    * The advertise() function is how you tell ROS that you want to
    * publish on a given topic name. This invokes a call to the ROS
@@ -121,7 +140,7 @@ int main(int argc, char **argv) {
     /**
      * This is a message object. You stuff it with data, and then publish it.
      */
-    ss  << count << ": " << pub_msg << std::endl;
+    ss  << count << ": " << broadcast_msg.message << std::endl;
     msg.data = ss.str();
 
     ROS_INFO("%s", msg.data.c_str());
