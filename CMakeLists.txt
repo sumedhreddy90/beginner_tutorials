@@ -5,13 +5,13 @@ project(beginner_tutorials)
 # add_compile_options(-std=c++11)
 
 ## Find catkin and any catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs genmsg message_generation)
+find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs genmsg message_generation tf2 tf2_ros)
 
 ## Generate services in the 'srv' folder
 add_service_files(FILES  Service.srv)
 
 ## Generate added messages and services
-generate_messages(DEPENDENCIES std_msgs)
+generate_messages(DEPENDENCIES std_msgs tf2_geometry_msgs)
 
 ## Declare a catkin package
 catkin_package()
