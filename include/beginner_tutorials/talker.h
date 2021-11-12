@@ -26,6 +26,9 @@
 #ifndef BEGINNER_TUTORIALS_INCLUDE_BEGINNER_TUTORIALS_TALKER_H_
 #define BEGINNER_TUTORIALS_INCLUDE_BEGINNER_TUTORIALS_TALKER_H_
 
+#include <string>
+#include <iostream>
+#include <sstream>
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
@@ -54,7 +57,15 @@ std::stringstream ss;
 /**
  * Service object to advertise data on particular service
  */
-//ros::ServiceServer service;
+
+// ros::ServiceServer service;
+
+/**
+ *  Structure to store string message
+ */ 
+struct Message {
+    std::string message = "I Bake Robots #starfleeet";
+};
 
 #endif  // BEGINNER_TUTORIALS_INCLUDE_BEGINNER_TUTORIALS_TALKER_H_
 
