@@ -54,13 +54,13 @@ $rosrun rqt_logger_level rqt_logger_level
 ```
 cd ~/catkin_ws/
 source devel/setup.bash
-roslaunch beginner_tutorials talker_listener.launch frequency:=20 rosbagRecorder:=true
+roslaunch beginner_tutorials talkbag.launch frequency:=20 rosbagRecorder:=true
 ```
 2) To replay the rosbag data collected, run the following command while the listener node is running in another terminal.
 ```
 cd ~/catkin_ws/
 source devel/setup.bash
-cd ~/catkin_ws/src/beginner_tutorials/Results/
+cd ~/catkin_ws/src/beginner_tutorials/results/Week_11
 rosbag play recorder.bag 
 ```
 
