@@ -71,14 +71,7 @@ int main(int argc, char **argv) {
    * part of the ROS system.
    */
   ros::init(argc, argv, "talker");
-  if (argc != 8) {
-    ROS_ERROR("Invalid number of parameters\nusage: talk frame name x y z roll pitch yaw");
-    return -1;
-  }
-  if (strcmp(argv[1], "world") == 0) {
-    ROS_ERROR("Your static talk name cannot be 'world'");
-    return -1;
-  }
+ 
   // Initialize broadcaster and frame
     static tf2_ros::StaticTransformBroadcaster static_caster;
     geometry_msgs::TransformStamped static_transformStamped;
@@ -160,15 +153,14 @@ int main(int argc, char **argv) {
     static_transformStamped.header.frame_id = "world";
     static_transformStamped.child_frame_id = "talk";
     // Setting origin and orientation for tf2 frame
-    static_transformStamped.transform.translation.x = atof(argv[2]);
-    static_transformStamped.transform.translation.y = atof(argv[3]);
-    static_transformStamped.transform.translation.z = atof(argv[4]);
+    static_transformStamped.transform.translation.x = 3;
+    static_transformStamped.transform.translation.y = 4;
+    static_transformStamped.transform.translation.z = 5;
     // orientation
-    quat.setRPY(atof(argv[5]), atof(argv[6]), atof(argv[7]));
+    quat.setRPY(6, 7, 8);
     static_transformStamped.transform.rotation.x = quat.x();
     static_transformStamped.transform.rotation.y = quat.y();
     static_transformStamped.transform.rotation.z = quat.z();
-    static_transformStamped.transform.rotation.w = quat.w();
     // Pass the tf2 into the broadcaster
     static_caster.sendTransform(static_transformStamped);
     ROS_INFO("Spinning until killed publishing /talk to /world");
