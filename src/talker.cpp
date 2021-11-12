@@ -83,9 +83,6 @@ int main(int argc, char **argv) {
     static tf2_ros::StaticTransformBroadcaster static_caster;
     geometry_msgs::TransformStamped static_transformStamped;
     tf2::Quaternion quat;
-
-
-
   /**
    * NodeHandle is the main access point to communications with the ROS system.
    * The first NodeHandle constructed will fully initialize this node, and the last
@@ -137,12 +134,16 @@ int main(int argc, char **argv) {
    */
   count = 0;
   while (ros::ok()) {
+    // Debug message to display the frequency value
+    ROS_DEBUG_STREAM("Frequency is: " << frequency);
+    std_msgs::String msg;
+    std::stringstream ss;
     /**
      * This is a message object. You stuff it with data, and then publish it.
      */
     ss  << count << ": " << broadcast_msg.message << std::endl;
     msg.data = ss.str();
-
+    // Display the message
     ROS_INFO("%s", msg.data.c_str());
 
     /**
@@ -152,9 +153,25 @@ int main(int argc, char **argv) {
      * in the constructor above.
      */
     chatter_pub.publish(msg);
-
+    /**
+     * Broadcasting
+     */
+    static_transformStamped.header.stamp = ros::Time::now();
+    static_transformStamped.header.frame_id = "world";
+    static_transformStamped.child_frame_id = "talk";
+    // Setting origin and orientation for tf2 frame
+    static_transformStamped.transform.translation.x = 10;
+    static_transformStamped.transform.translation.y = 6;
+    static_transformStamped.transform.translation.z = 5;
+    quat.setRPY(4, 11, 2);
+    static_transformStamped.transform.rotation.x = quat.x();
+    static_transformStamped.transform.rotation.y = quat.y();
+    static_transformStamped.transform.rotation.z = quat.z();
+    static_transformStamped.transform.rotation.w = quat.w();
+    // Pass the tf2 into the broadcaster
+    static_caster.sendTransform(static_transformStamped);
+    ROS_INFO("Spinning until killed publishing /talk to /world";
     ros::spinOnce();
-
     loop_rate.sleep();
     ++count;
   }
