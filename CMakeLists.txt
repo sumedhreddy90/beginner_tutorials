@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs genmsg message_gen
 add_service_files(FILES  Service.srv)
 
 ## Generate added messages and services
-generate_messages(DEPENDENCIES std_msgs tf2_geometry_msgs)
+generate_messages(DEPENDENCIES std_msgs)
 
 ## Declare a catkin package
 catkin_package()

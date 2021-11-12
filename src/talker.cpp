@@ -70,7 +70,7 @@ int main(int argc, char **argv) {
    * You must call one of the versions of ros::init() before using any other
    * part of the ROS system.
    */
-  ros::init(argc, argv, "talk");
+  ros::init(argc, argv, "talker");
   if (argc != 8) {
     ROS_ERROR("Invalid number of parameters\nusage: talk frame name x y z roll pitch yaw");
     return -1;
@@ -160,17 +160,18 @@ int main(int argc, char **argv) {
     static_transformStamped.header.frame_id = "world";
     static_transformStamped.child_frame_id = "talk";
     // Setting origin and orientation for tf2 frame
-    static_transformStamped.transform.translation.x = 10;
-    static_transformStamped.transform.translation.y = 6;
-    static_transformStamped.transform.translation.z = 5;
-    quat.setRPY(4, 11, 2);
+    static_transformStamped.transform.translation.x = atof(argv[2]);
+    static_transformStamped.transform.translation.y = atof(argv[3]);
+    static_transformStamped.transform.translation.z = atof(argv[4]);
+    // orientation
+    quat.setRPY(atof(argv[5]), atof(argv[6]), atof(argv[7]));
     static_transformStamped.transform.rotation.x = quat.x();
     static_transformStamped.transform.rotation.y = quat.y();
     static_transformStamped.transform.rotation.z = quat.z();
     static_transformStamped.transform.rotation.w = quat.w();
     // Pass the tf2 into the broadcaster
     static_caster.sendTransform(static_transformStamped);
-    ROS_INFO("Spinning until killed publishing /talk to /world";
+    ROS_INFO("Spinning until killed publishing /talk to /world");
     ros::spinOnce();
     loop_rate.sleep();
     ++count;
