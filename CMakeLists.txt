@@ -34,6 +34,7 @@ if(CATKIN_ENABLE_TESTING)
   add_rostest_gtest(
   talker_tests
   test/talker_tests.launch
+  test/main.cpp
   test/talker_tests.cpp
   )
 
@@ -42,9 +43,9 @@ if(CATKIN_ENABLE_TESTING)
   ${catkin_LIBRARIES}
   )
   add_dependencies(
-    talker_tests
     talker
-    listener
+    talker_tests
+    ${PROJECT_NAME}_generate_messages_cpp
     ${catkin_EXPORTED_TARGETS}
-    )
+  )
 endif()
