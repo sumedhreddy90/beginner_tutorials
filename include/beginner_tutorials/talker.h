@@ -64,7 +64,7 @@ std::stringstream ss;
  *  Structure to store string message
  */ 
 struct Message {
-    std::string message = "I Bake Robots #starfleeet";
+    std::string message = "IloveRobots";
 };
 
 #endif  // BEGINNER_TUTORIALS_INCLUDE_BEGINNER_TUTORIALS_TALKER_H_
