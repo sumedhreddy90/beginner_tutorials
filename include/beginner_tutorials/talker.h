@@ -58,7 +58,7 @@ std::stringstream ss;
  * Service object to advertise data on particular service
  */
 
-// ros::ServiceServer service;
+ros::ServiceServer service;
 
 /**
  *  Structure to store string message

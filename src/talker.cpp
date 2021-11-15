@@ -82,7 +82,7 @@ int main(int argc, char **argv) {
    */
   ros::NodeHandle node;
   // Creating service and advertised over ROS
-  ros::ServiceServer service = node.advertiseService(
+  service = node.advertiseService(
   "Service", &Update);
 
   /**
@@ -128,8 +128,6 @@ int main(int argc, char **argv) {
   while (ros::ok()) {
     // Debug message to display the frequency value
     ROS_DEBUG_STREAM("Frequency is: " << frequency);
-    std_msgs::String msg;
-    std::stringstream ss;
     /**
      * This is a message object. You stuff it with data, and then publish it.
      */
