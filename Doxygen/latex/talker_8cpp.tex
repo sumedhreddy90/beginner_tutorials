@@ -1,9 +1,10 @@
-\hypertarget{talker_8cpp}{}\doxysection{/home/sumedh/catkin\+\_\+ws/src/beginner\+\_\+tutorials/src/talker.cpp File Reference}
-\label{talker_8cpp}\index{/home/sumedh/catkin\_ws/src/beginner\_tutorials/src/talker.cpp@{/home/sumedh/catkin\_ws/src/beginner\_tutorials/src/talker.cpp}}
+\hypertarget{talker_8cpp}{}\doxysection{src/talker.cpp File Reference}
+\label{talker_8cpp}\index{src/talker.cpp@{src/talker.cpp}}
 {\ttfamily \#include \char`\"{}beginner\+\_\+tutorials/talker.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$tf2\+\_\+ros/static\+\_\+transform\+\_\+broadcaster.\+h$>$}\newline
+{\ttfamily \#include $<$tf2/\+Linear\+Math/\+Quaternion.\+h$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
 {\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}std\+\_\+msgs/\+String.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}beginner\+\_\+tutorials/\+Service.\+h\char`\"{}}\newline
 Include dependency graph for talker.\+cpp\+:
 \nopagebreak
@@ -16,31 +17,29 @@ Include dependency graph for talker.\+cpp\+:
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-bool \mbox{\hyperlink{talker_8cpp_a109adc0edc3bbc33d1a4198f8ec78109}{Is\+Message}} (beginner\+\_\+tutorials\+::\+Service\+::\+Request \&request\+\_\+, beginner\+\_\+tutorials\+::\+Service\+::\+Response \&response\+\_\+)
+bool \mbox{\hyperlink{talker_8cpp_af5f2c68be56b536e2c804a9392b266c2}{Update}} (beginner\+\_\+tutorials\+::\+Service\+::\+Request \&request\+\_\+, beginner\+\_\+tutorials\+::\+Service\+::\+Response \&response\+\_\+)
 \item 
 int \mbox{\hyperlink{talker_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This tutorial demonstrates simple sending of messages over the R\+OS system. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string \mbox{\hyperlink{talker_8cpp_add9b5ab0fffaf61bf6b08b197c003ebb}{pub\+\_\+msg}} = \char`\"{}I bake robots\char`\"{}
+\mbox{\hyperlink{struct_message}{Message}} \mbox{\hyperlink{talker_8cpp_ab95e5ed99def338a52186b70442efd17}{broadcast\+\_\+msg}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{talker_8cpp_a109adc0edc3bbc33d1a4198f8ec78109}\label{talker_8cpp_a109adc0edc3bbc33d1a4198f8ec78109}} 
-\index{talker.cpp@{talker.cpp}!IsMessage@{IsMessage}}
-\index{IsMessage@{IsMessage}!talker.cpp@{talker.cpp}}
-\doxysubsubsection{\texorpdfstring{IsMessage()}{IsMessage()}}
-{\footnotesize\ttfamily bool Is\+Message (\begin{DoxyParamCaption}\item[{beginner\+\_\+tutorials\+::\+Service\+::\+Request \&}]{request\+\_\+,  }\item[{beginner\+\_\+tutorials\+::\+Service\+::\+Response \&}]{response\+\_\+ }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{talker_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{talker_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
 \index{talker.cpp@{talker.cpp}!main@{main}}
 \index{main@{main}!talker.cpp@{talker.cpp}}
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
 
-This tutorial demonstrates simple sending of messages over the R\+OS system. The ros\+::init() function needs to see argc and argv so that it can perform any R\+OS arguments and name remapping that were provided at the command line. For programmatic remappings you can use a different version of init() which takes remappings directly, but for most command-\/line programs, passing argc and argv is the easiest way to do it. The third argument to init() is the name of the node.
+
+
+This tutorial demonstrates simple sending of messages over the R\+OS system. 
+
+The ros\+::init() function needs to see argc and argv so that it can perform any R\+OS arguments and name remapping that were provided at the command line. For programmatic remappings you can use a different version of init() which takes remappings directly, but for most command-\/line programs, passing argc and argv is the easiest way to do it. The third argument to init() is the name of the node.
 
 You must call one of the versions of ros\+::init() before using any other part of the R\+OS system.
 
@@ -56,10 +55,18 @@ This is a message object. You stuff it with data, and then publish it.
 
 The publish() function is how you send messages. The parameter is the message object. The type of this object must agree with the type given as a template parameter to the advertise$<$$>$() call, as was done in the constructor above.
 
+Broadcasting\mbox{\Hypertarget{talker_8cpp_af5f2c68be56b536e2c804a9392b266c2}\label{talker_8cpp_af5f2c68be56b536e2c804a9392b266c2}} 
+\index{talker.cpp@{talker.cpp}!Update@{Update}}
+\index{Update@{Update}!talker.cpp@{talker.cpp}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily bool Update (\begin{DoxyParamCaption}\item[{beginner\+\_\+tutorials\+::\+Service\+::\+Request \&}]{request\+\_\+,  }\item[{beginner\+\_\+tutorials\+::\+Service\+::\+Response \&}]{response\+\_\+ }\end{DoxyParamCaption})}
+
+
+
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{talker_8cpp_add9b5ab0fffaf61bf6b08b197c003ebb}\label{talker_8cpp_add9b5ab0fffaf61bf6b08b197c003ebb}} 
-\index{talker.cpp@{talker.cpp}!pub\_msg@{pub\_msg}}
-\index{pub\_msg@{pub\_msg}!talker.cpp@{talker.cpp}}
-\doxysubsubsection{\texorpdfstring{pub\_msg}{pub\_msg}}
-{\footnotesize\ttfamily std\+::string pub\+\_\+msg = \char`\"{}I bake robots\char`\"{}}
+\mbox{\Hypertarget{talker_8cpp_ab95e5ed99def338a52186b70442efd17}\label{talker_8cpp_ab95e5ed99def338a52186b70442efd17}} 
+\index{talker.cpp@{talker.cpp}!broadcast\_msg@{broadcast\_msg}}
+\index{broadcast\_msg@{broadcast\_msg}!talker.cpp@{talker.cpp}}
+\doxysubsubsection{\texorpdfstring{broadcast\_msg}{broadcast\_msg}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_message}{Message}} broadcast\+\_\+msg}
 

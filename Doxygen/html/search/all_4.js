@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['pub_5fmsg_4',['pub_msg',['../talker_8cpp.html#add9b5ab0fffaf61bf6b08b197c003ebb',1,'talker.cpp']]]
+  ['service_9',['service',['../talker_8h.html#af3dc63aa0b0036014b2ff9db19d15be6',1,'talker.h']]],
+  ['ss_10',['ss',['../talker_8h.html#a8fc3524f4e679a41dcc8d0f302d637ed',1,'talker.h']]]
 ];

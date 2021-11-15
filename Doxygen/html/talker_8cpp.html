@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Services in ROS: /home/sumedh/catkin_ws/src/beginner_tutorials/src/talker.cpp File Reference</title>
+<title>ROS Broadcaster: src/talker.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Services in ROS
-   &#160;<span id="projectnumber">2</span>
+   <div id="projectname">ROS Broadcaster
+   &#160;<span id="projectnumber">w11</span>
    </div>
   </td>
  </tr>
@@ -73,66 +73,44 @@ $(function() {
 <div class="title">talker.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;beginner_tutorials/talker.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="talker_8h_source.html">beginner_tutorials/talker.h</a>&quot;</code><br />
+<code>#include &lt;tf2_ros/static_transform_broadcaster.h&gt;</code><br />
+<code>#include &lt;tf2/LinearMath/Quaternion.h&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &quot;ros/ros.h&quot;</code><br />
-<code>#include &quot;std_msgs/String.h&quot;</code><br />
 <code>#include &quot;beginner_tutorials/Service.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for talker.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="talker_8cpp__incl.png" border="0" usemap="#_2home_2sumedh_2catkin__ws_2src_2beginner__tutorials_2src_2talker_8cpp" alt=""/></div>
-<map name="_2home_2sumedh_2catkin__ws_2src_2beginner__tutorials_2src_2talker_8cpp" id="_2home_2sumedh_2catkin__ws_2src_2beginner__tutorials_2src_2talker_8cpp">
-<area shape="rect" title=" " alt="" coords="213,5,405,61"/>
-<area shape="rect" title=" " alt="" coords="5,109,145,151"/>
-<area shape="rect" title=" " alt="" coords="170,117,245,143"/>
-<area shape="rect" title=" " alt="" coords="269,117,348,143"/>
-<area shape="rect" title=" " alt="" coords="373,117,511,143"/>
-<area shape="rect" title=" " alt="" coords="536,109,676,151"/>
+<div class="center"><img src="talker_8cpp__incl.png" border="0" usemap="#src_2talker_8cpp" alt=""/></div>
+<map name="src_2talker_8cpp" id="src_2talker_8cpp">
+<area shape="rect" title=" " alt="" coords="451,5,560,32"/>
+<area shape="rect" href="talker_8h.html" title=" " alt="" coords="203,80,343,121"/>
+<area shape="rect" title=" " alt="" coords="355,169,429,196"/>
+<area shape="rect" title=" " alt="" coords="454,169,533,196"/>
+<area shape="rect" title=" " alt="" coords="480,80,659,121"/>
+<area shape="rect" title=" " alt="" coords="683,87,888,114"/>
+<area shape="rect" title=" " alt="" coords="913,80,1053,121"/>
+<area shape="rect" title=" " alt="" coords="5,169,64,196"/>
+<area shape="rect" title=" " alt="" coords="88,169,168,196"/>
+<area shape="rect" title=" " alt="" coords="192,169,331,196"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a109adc0edc3bbc33d1a4198f8ec78109"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="talker_8cpp.html#a109adc0edc3bbc33d1a4198f8ec78109">IsMessage</a> (beginner_tutorials::Service::Request &amp;request_, beginner_tutorials::Service::Response &amp;response_)</td></tr>
-<tr class="separator:a109adc0edc3bbc33d1a4198f8ec78109"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5f2c68be56b536e2c804a9392b266c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="talker_8cpp.html#af5f2c68be56b536e2c804a9392b266c2">Update</a> (beginner_tutorials::Service::Request &amp;request_, beginner_tutorials::Service::Response &amp;response_)</td></tr>
+<tr class="separator:af5f2c68be56b536e2c804a9392b266c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="talker_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
+<tr class="memdesc:a3c04138a5bfe5d72780bb7e82a18e627"><td class="mdescLeft">&#160;</td><td class="mdescRight">This tutorial demonstrates simple sending of messages over the ROS system.  <a href="talker_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">More...</a><br /></td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:add9b5ab0fffaf61bf6b08b197c003ebb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="talker_8cpp.html#add9b5ab0fffaf61bf6b08b197c003ebb">pub_msg</a> = &quot;I bake robots&quot;</td></tr>
-<tr class="separator:add9b5ab0fffaf61bf6b08b197c003ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab95e5ed99def338a52186b70442efd17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_message.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="talker_8cpp.html#ab95e5ed99def338a52186b70442efd17">broadcast_msg</a></td></tr>
+<tr class="separator:ab95e5ed99def338a52186b70442efd17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a109adc0edc3bbc33d1a4198f8ec78109"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a109adc0edc3bbc33d1a4198f8ec78109">&#9670;&nbsp;</a></span>IsMessage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool IsMessage </td>
-          <td>(</td>
-          <td class="paramtype">beginner_tutorials::Service::Request &amp;&#160;</td>
-          <td class="paramname"><em>request_</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">beginner_tutorials::Service::Response &amp;&#160;</td>
-          <td class="paramname"><em>response_</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c04138a5bfe5d72780bb7e82a18e627">&#9670;&nbsp;</a></span>main()</h2>
 
@@ -158,6 +136,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>This tutorial demonstrates simple sending of messages over the ROS system. </p>
 <p>The ros::init() function needs to see argc and argv so that it can perform any ROS arguments and name remapping that were provided at the command line. For programmatic remappings you can use a different version of init() which takes remappings directly, but for most command-line programs, passing argc and argv is the easiest way to do it. The third argument to init() is the name of the node.</p>
 <p>You must call one of the versions of ros::init() before using any other part of the ROS system.</p>
@@ -167,18 +146,47 @@ Variables</h2></td></tr>
 <p>A count of how many messages we have sent. This is used to create a unique string for each message.</p>
 <p>This is a message object. You stuff it with data, and then publish it.</p>
 <p>The publish() function is how you send messages. The parameter is the message object. The type of this object must agree with the type given as a template parameter to the advertise&lt;&gt;() call, as was done in the constructor above.</p>
+<p>Broadcasting</p>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="add9b5ab0fffaf61bf6b08b197c003ebb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add9b5ab0fffaf61bf6b08b197c003ebb">&#9670;&nbsp;</a></span>pub_msg</h2>
+<a id="af5f2c68be56b536e2c804a9392b266c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5f2c68be56b536e2c804a9392b266c2">&#9670;&nbsp;</a></span>Update()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string pub_msg = &quot;I bake robots&quot;</td>
+          <td class="memname">bool Update </td>
+          <td>(</td>
+          <td class="paramtype">beginner_tutorials::Service::Request &amp;&#160;</td>
+          <td class="paramname"><em>request_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">beginner_tutorials::Service::Response &amp;&#160;</td>
+          <td class="paramname"><em>response_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ab95e5ed99def338a52186b70442efd17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab95e5ed99def338a52186b70442efd17">&#9670;&nbsp;</a></span>broadcast_msg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_message.html">Message</a> broadcast_msg</td>
         </tr>
       </table>
 </div><div class="memdoc">

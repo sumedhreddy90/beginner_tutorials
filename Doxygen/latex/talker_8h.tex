@@ -1,0 +1,94 @@
+\hypertarget{talker_8h}{}\doxysection{include/beginner\+\_\+tutorials/talker.h File Reference}
+\label{talker_8h}\index{include/beginner\_tutorials/talker.h@{include/beginner\_tutorials/talker.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}std\+\_\+msgs/\+String.\+h\char`\"{}}\newline
+Include dependency graph for talker.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{talker_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{talker_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_message}{Message}}
+\begin{DoxyCompactList}\small\item\em Structure to store string message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ros\+::\+Publisher \mbox{\hyperlink{talker_8h_ac050ecd28d14458e8d356e5f6d38a25b}{chatter\+\_\+pub}}
+\begin{DoxyCompactList}\small\item\em Publisher object to publish data for provided topic name. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{talker_8h_ad43c3812e6d13e0518d9f8b8f463ffcf}{count}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_message}{Message}} count with unique character count. \end{DoxyCompactList}\item 
+std\+\_\+msgs\+::\+String \mbox{\hyperlink{talker_8h_a82cfe4ed9bc9e1b07c8bf209c324d85b}{msg}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_message}{Message}} object consisting data to publish message. \end{DoxyCompactList}\item 
+std\+::stringstream \mbox{\hyperlink{talker_8h_a8fc3524f4e679a41dcc8d0f302d637ed}{ss}}
+\begin{DoxyCompactList}\small\item\em stream object for storing a given sequence of characters. \end{DoxyCompactList}\item 
+ros\+::\+Service\+Server \mbox{\hyperlink{talker_8h_af3dc63aa0b0036014b2ff9db19d15be6}{service}}
+\begin{DoxyCompactList}\small\item\em Service object to advertise data on particular service. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{talker_8h_ac050ecd28d14458e8d356e5f6d38a25b}\label{talker_8h_ac050ecd28d14458e8d356e5f6d38a25b}} 
+\index{talker.h@{talker.h}!chatter\_pub@{chatter\_pub}}
+\index{chatter\_pub@{chatter\_pub}!talker.h@{talker.h}}
+\doxysubsubsection{\texorpdfstring{chatter\_pub}{chatter\_pub}}
+{\footnotesize\ttfamily ros\+::\+Publisher chatter\+\_\+pub}
+
+
+
+Publisher object to publish data for provided topic name. 
+
+\mbox{\Hypertarget{talker_8h_ad43c3812e6d13e0518d9f8b8f463ffcf}\label{talker_8h_ad43c3812e6d13e0518d9f8b8f463ffcf}} 
+\index{talker.h@{talker.h}!count@{count}}
+\index{count@{count}!talker.h@{talker.h}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily int count}
+
+
+
+\mbox{\hyperlink{struct_message}{Message}} count with unique character count. 
+
+\mbox{\Hypertarget{talker_8h_a82cfe4ed9bc9e1b07c8bf209c324d85b}\label{talker_8h_a82cfe4ed9bc9e1b07c8bf209c324d85b}} 
+\index{talker.h@{talker.h}!msg@{msg}}
+\index{msg@{msg}!talker.h@{talker.h}}
+\doxysubsubsection{\texorpdfstring{msg}{msg}}
+{\footnotesize\ttfamily std\+\_\+msgs\+::\+String msg}
+
+
+
+\mbox{\hyperlink{struct_message}{Message}} object consisting data to publish message. 
+
+\mbox{\Hypertarget{talker_8h_af3dc63aa0b0036014b2ff9db19d15be6}\label{talker_8h_af3dc63aa0b0036014b2ff9db19d15be6}} 
+\index{talker.h@{talker.h}!service@{service}}
+\index{service@{service}!talker.h@{talker.h}}
+\doxysubsubsection{\texorpdfstring{service}{service}}
+{\footnotesize\ttfamily ros\+::\+Service\+Server service}
+
+
+
+Service object to advertise data on particular service. 
+
+\mbox{\Hypertarget{talker_8h_a8fc3524f4e679a41dcc8d0f302d637ed}\label{talker_8h_a8fc3524f4e679a41dcc8d0f302d637ed}} 
+\index{talker.h@{talker.h}!ss@{ss}}
+\index{ss@{ss}!talker.h@{talker.h}}
+\doxysubsubsection{\texorpdfstring{ss}{ss}}
+{\footnotesize\ttfamily std\+::stringstream ss}
+
+
+
+stream object for storing a given sequence of characters. 
+
