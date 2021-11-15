@@ -71,7 +71,6 @@ int main(int argc, char **argv) {
    * part of the ROS system.
    */
   ros::init(argc, argv, "talker");
- 
   // Initialize broadcaster and frame
     static tf2_ros::StaticTransformBroadcaster static_caster;
     geometry_msgs::TransformStamped static_transformStamped;

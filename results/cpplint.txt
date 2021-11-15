@@ -2,3 +2,5 @@ Done processing ./include/beginner_tutorials/listener.h
 Done processing ./include/beginner_tutorials/talker.h
 Done processing ./src/listener.cpp
 Done processing ./src/talker.cpp
+Done processing ./test/main.cpp
+Done processing ./test/talker_tests.cpp

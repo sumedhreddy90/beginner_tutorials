@@ -32,7 +32,7 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 
-//ros::NodeHandle* node;
+// ros::NodeHandle* node;
 
 /**
  * Publisher object to publish data for provided topic name.

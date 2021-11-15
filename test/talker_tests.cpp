@@ -34,7 +34,8 @@
  */
 TEST(TalkerNodeTest, checkServiceInitialization) {
   ros::NodeHandle node;
-  ros::ServiceClient listener = node.serviceClient<beginner_tutorials::Service>("Service");
+  ros::ServiceClient listener = node.serviceClient //NOLINT
+  <beginner_tutorials::Service>("Service");
   bool run_success(listener.waitForExistence(ros::Duration(1)));
   EXPECT_TRUE(run_success);
 }
