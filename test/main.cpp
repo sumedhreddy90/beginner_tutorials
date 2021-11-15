@@ -16,40 +16,21 @@
  *OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *SOFTWARE.
  *
- * @file talker_tests.cpp
+ * @file main.cpp
  * @author Sumedh Koppula
  * @date 7th Nov 2021
  * @copyright All rights reserved
  * @brief header file for publishing messages over master node.
  * 
  */
-#include <ros/ros.h>
-#include <ros/service_client.h>
 #include <gtest/gtest.h>
-#include "beginner_tutorials/Service.h"
+#include <ros/ros.h>
 
-/**
- * @brief A test case to check for successful service
- * @return void
- */
-TEST(TalkerNodeTest, checkServiceInitialization) {
-  ros::NodeHandle node;
-  ros::ServiceClient listener = node.serviceClient<beginner_tutorials::Service>("Service");
-  bool run_success(listener.waitForExistence(ros::Duration(1)));
-  EXPECT_TRUE(run_success);
-}
+std::shared_ptr<ros::NodeHandle> node1;
 
-/**
- * @brief Tests service to update publisher message
- */
-TEST(TalkerNodeTest, UpdateString) {
-  ros::NodeHandle node;
-  ros::ServiceClient client =
-      node.serviceClient<beginner_tutorials::Service>("Service");
-  beginner_tutorials::Service::Request request;
-  beginner_tutorials::Service::Response response;
-  request.input_string = "Test string";
-  std::string expectedString = request.input_string;
-  bool success = client.call(request, response);
-  EXPECT_EQ("Test string", response.output_string);
+int main(int argc, char** argv) {
+  ros::init(argc, argv, "talker_tests");
+  node1.reset(new ros::NodeHandle);
+  testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }

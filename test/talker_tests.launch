@@ -1,6 +1,5 @@
-
-<?xml version="1.0"?>
 <launch> 
-	<node pkg="beginner_tutorials" type="talker" name="talker" />
+	<arg name="frequency" default="20" doc="frequency argument"/>
+	<node pkg="beginner_tutorials" type="talker" name="talker" args="$(arg frequency)"/>
 	<test pkg="beginner_tutorials" test-name="talker_tests"  type="talker_tests" />
 </launch>
